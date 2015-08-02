@@ -1,0 +1,9 @@
+<h2>Add a New Article</h2>
+
+<%= form_tag "/articles" do %>
+  <p><label>Title:</label> <input name="title"></p>
+  <p><label>URL:</label> <input name="link"></p>
+  <p><label>Comment:</label></p>
+  <textarea name="comment" cols="80" rows="3"></textarea>
+  <p><input type="submit"></p>
+<% end %>

@@ -1,0 +1,24 @@
+Article
+  title: string
+  link: string
+  comment: string
+  user_id: string
+
+# Book
+#   title: string
+#   author: string
+#   link: string
+#   comment: string
+#   user_id: string
+
+# Photo
+#   photo_url: string
+#   caption: string
+#   user_id: string
+
+# Thought
+#   comment: string
+#   user_id: string
+
+# User
+#   name: string

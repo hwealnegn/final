@@ -1,0 +1,16 @@
+<h1> Welcome </h1>
+<h3> This is a space to share articles, book recommendations, and your thoughts with others in this community. Inspire and provoke; be inspired and provoked! </h3>
+
+<p> <%= link_to "Add Article", "articles/new" %> </p>
+
+<ul>
+	<% @articles.each do |article| %>
+	<li>
+		<p> <%= link_to article.title, "/articles/#{article.id}" %> </p>
+		<p> <%= article.comment %>
+			<%= link_to "More", "articles/#{article.id}" %>
+			<%= link_to "(delete)", "/articles/#{article.id}", :method => "delete" %>
+		</p>
+	</li>
+	<% end %>
+</ul>
