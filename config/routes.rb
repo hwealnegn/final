@@ -3,10 +3,10 @@ Rails.application.routes.draw do
   root 'articles#index'
 
   resources :articles
-  resources :books
-  resources :photos
-  resources :thoughts
-  resources :users
+  # resources :books
+  # resources :photos
+  # resources :thoughts
+  # resources :users
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

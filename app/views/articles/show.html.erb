@@ -1,2 +1,4 @@
+<h2> <%= link_to "Home", "/" %> </h2>
 <h2> <%= link_to @article.title, @article.link %> </h2>
 <p> <%= @article.comment %> </p>
+<p> <%= link_to "Edit", "/articles/#{@article.id}/edit" %>
