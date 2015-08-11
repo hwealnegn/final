@@ -4,21 +4,17 @@ Article
   comment: string
   user_id: string
 
+Post
+  type: string
+  post_id: integer
+
 # Book
 #   title: string
 #   author: string
 #   link: string
-#   comment: string
-#   user_id: string
 
 # Photo
 #   photo_url: string
-#   caption: string
-#   user_id: string
-
-# Thought
-#   comment: string
-#   user_id: string
 
 # User
 #   name: string

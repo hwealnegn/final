@@ -14,12 +14,19 @@
 ActiveRecord::Schema.define(version: 0) do
 
   create_table "articles", force: :cascade do |t|
-    t.string "title"
     t.string "link"
+    t.string "title"
     t.string "comment"
     t.string "user_id"
   end
 
   add_index "articles", ["user_id"], name: "index_articles_on_user_id"
+
+  create_table "posts", force: :cascade do |t|
+    t.string  "type"
+    t.integer "post_id"
+  end
+
+  add_index "posts", ["post_id"], name: "index_posts_on_post_id"
 
 end

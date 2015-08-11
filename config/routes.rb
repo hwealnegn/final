@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   
-  root 'articles#index'
+  # root 'articles#index'
+  root 'posts#index'
 
+  resources :posts
   resources :articles
   # resources :books
   # resources :photos
