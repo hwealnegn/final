@@ -1,22 +1,22 @@
-<h1> Welcome </h1>
-<h3> This is a space to share articles, book recommendations, and your thoughts with others in this community. Go forth and question, provoke, and inspire each other. </h3>
+<% if session[:user_id] %>
+	<h4> <%= User.find_by_id(session[:user_id]).name %> </h4>
+<% end %>
 
-<p> <%= link_to "Create New Post", "posts/new" %> </p>
+<h3> Welcome! This is a space to share articles, book recommendations, and your thoughts with others in this community. Go forth and question, provoke, and inspire each other. </h3>
+
+<p> <%= link_to "Add Post", "posts/new" %> </p>
 
 <ul>
 	<% @posts.each do |post| %>
 	<li>
-		<% if post.type === "Article" %>
-			<p> <%= link_to post.title, "/articles/#{post.product_id}" %> </p>
-			<p> <%= post.comment %>
-				<%= link_to "(delete)", "/posts/#{post.id}", :method => "delete" %>
-			</p>
-		<% else %>
-			<p> <%= link_to post.title, "/posts/#{post.id}" %> </p>
-			<p> <%= post.comment %>
-				<%= link_to "(delete)", "/posts/#{post.id}", :method => "delete" %>
-			</p>
-		<% end %>
+		<p> <%= link_to post.title, "/posts/#{post.id}" %> </p>
+		<p> <%= post.note %>
+			<% if session[:user_id] %>
+				<% if session[:user_id].to_s == post.user_id.to_s %>
+					<%= link_to "(delete)", "/posts/#{post.id}", :method => "delete" %>
+				<% end %>
+			<% end %>
+		</p>
 	</li>
 	<% end %>
 </ul>

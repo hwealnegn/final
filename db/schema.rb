@@ -13,20 +13,28 @@
 
 ActiveRecord::Schema.define(version: 0) do
 
-  create_table "articles", force: :cascade do |t|
-    t.string "link"
-    t.string "title"
-    t.string "comment"
+  create_table "comments", force: :cascade do |t|
+    t.string "text"
     t.string "user_id"
+    t.string "post_id"
   end
 
-  add_index "articles", ["user_id"], name: "index_articles_on_user_id"
+  add_index "comments", ["post_id"], name: "index_comments_on_post_id"
+  add_index "comments", ["user_id"], name: "index_comments_on_user_id"
 
   create_table "posts", force: :cascade do |t|
-    t.string  "type"
-    t.integer "post_id"
+    t.string "title"
+    t.string "link"
+    t.string "user_id"
+    t.string "note"
   end
 
-  add_index "posts", ["post_id"], name: "index_posts_on_post_id"
+  add_index "posts", ["user_id"], name: "index_posts_on_user_id"
+
+  create_table "users", force: :cascade do |t|
+    t.string "name"
+    t.string "email"
+    t.string "password_digest"
+  end
 
 end

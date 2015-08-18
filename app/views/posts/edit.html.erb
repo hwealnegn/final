@@ -1,0 +1,9 @@
+<h2>Edit Post</h2>
+
+<%= form_tag "/posts/#{@post.id}", :method => "patch" do %>
+  <p><label>Title:</label> <input name="title" value="<%= @post.title %>"></p>
+  <p><label>URL:</label> <input name="link" value="<%= @post.link %>"></p>
+  <p><label>Note:</label></p>
+  <textarea name="note" cols="80" rows="3"><%= @post.note %></textarea>
+  <p><input type="submit"></p>
+<% end %>

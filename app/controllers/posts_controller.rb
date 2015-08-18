@@ -14,9 +14,9 @@ class PostsController < ApplicationController
 
   def create
   	Post.create title: params[:title],
-             comment: params[:comment],
-             type: params[:type],
-             user_id: params[:user_id]
+             link: params[:link],
+             note: params[:note],
+             user_id: session[:user_id]
 
   	redirect_to root_path
   end
@@ -27,9 +27,9 @@ class PostsController < ApplicationController
 
   def update
     @post = Post.find_by(:id => params["id"])
-    @post.comment = params["comment"]
-    @post.type = params["type"]
-    @post.user_id = params["user_id"]
+    @post.title = params["title"]
+    @post.link = params["link"]
+    @post.note = params["note"]
     @post.save
     redirect_to "/posts/#{@post.id}"
   end

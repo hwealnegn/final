@@ -3,12 +3,15 @@ Rails.application.routes.draw do
   # root 'articles#index'
   root 'posts#index'
 
-  resources :posts
-  resources :articles
-  # resources :books
-  # resources :photos
-  # resources :thoughts
-  # resources :users
+  get '/sessions/new' => 'sessions#new'
+  post '/sessions' => 'sessions#create'
+  get '/logout' => 'sessions#destroy'
+  get '/account' => 'users#show'
+
+  resources :posts do
+    resources :comments
+  end
+  resources :users
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

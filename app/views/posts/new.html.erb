@@ -1,0 +1,9 @@
+<h2>Add a New Post</h2>
+
+<%= form_tag "/posts" do %>
+  <p><label>Title:</label> <input name="title"></p>
+  <p><label>URL:</label> <input name="link"></p>
+  <p><label>Note:</label></p>
+  <textarea name="note" cols="80" rows="3"></textarea>
+  <p><input type="submit"></p>
+<% end %>

@@ -1,20 +1,15 @@
-Article
+Post
   title: string
   link: string
-  comment: string
+  note: string
   user_id: string
 
-Post
-  type: string
-  post_id: integer
+User
+  name: string
+  email: string
+  password_digest: string
 
-# Book
-#   title: string
-#   author: string
-#   link: string
-
-# Photo
-#   photo_url: string
-
-# User
-#   name: string
+Comment
+  text: string
+  user_id: string
+  post_id: string
