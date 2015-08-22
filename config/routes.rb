@@ -10,6 +10,7 @@ Rails.application.routes.draw do
 
   resources :posts do
     resources :comments
+    put :favorite, on: :member
   end
   resources :users
 

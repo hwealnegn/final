@@ -39,4 +39,20 @@ class PostsController < ApplicationController
     redirect_to root_path
   end
 
+  def favorite
+    @user = User.find_by_id(session[:user_id])
+    @post = Post.find_by(:id => params["id"])
+
+    type = params[:type]
+    if type == "favorite"
+      @user.favorited_posts << (@post)
+      redirect_to :back, notice: 'You favorited #{@post.title}'
+    elsif type == "unfavorite"
+      @user.favorited_posts.delete(@post)
+      redirect_to :back, notice: 'You unfavorited #{@post.title}'
+    else
+      redirect_to :back
+    end
+  end
+
 end

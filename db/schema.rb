@@ -22,6 +22,14 @@ ActiveRecord::Schema.define(version: 0) do
   add_index "comments", ["post_id"], name: "index_comments_on_post_id"
   add_index "comments", ["user_id"], name: "index_comments_on_user_id"
 
+  create_table "favorites", force: :cascade do |t|
+    t.string "user_id"
+    t.string "post_id"
+  end
+
+  add_index "favorites", ["post_id"], name: "index_favorites_on_post_id"
+  add_index "favorites", ["user_id"], name: "index_favorites_on_user_id"
+
   create_table "posts", force: :cascade do |t|
     t.string "title"
     t.string "link"

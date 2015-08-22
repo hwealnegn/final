@@ -6,6 +6,14 @@
 	<% end %>
 <% end %>
 
+<% if session[:user_id] %>
+	<% if @post.favorited_by.where(:id => session[:user_id]).exists? %>
+  		<%= link_to "Unfavorite", favorite_post_path(@post, type: "unfavorite"), method: :put %>
+  	<% else %>
+  		<%= link_to "Favorite",   favorite_post_path(@post, type: "favorite"), method: :put %>
+  	<% end %>
+<% end %>
+
 <h3> Comments </h3>
 <% @post.comments.each do |comment| %>
 	<p> <%= comment.text %> </p>
@@ -17,8 +25,12 @@
 	<% end %>
 <% end %>
 
-<h3> Add a comment: </h3>
-<%= form_for([@post, @post.comments.build]) do %>
-	<textarea name="text" cols="80" rows="3"></textarea>
-	<p> <input type="submit"> </p>
+<% if session[:user_id] %>
+	<h3> Add a comment: </h3>
+	<%= form_for([@post, @post.comments.build]) do %>
+		<textarea name="text" cols="80" rows="3"></textarea>
+		<p> <input type="submit"> </p>
+	<% end %>
+<% else %>
+	<h3> Sign in to comment! </h3>
 <% end %>

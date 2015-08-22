@@ -7,6 +7,8 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 Post.delete_all
+Comment.delete_all
+Favorite.delete_all
 
 Post.create title: "What Are You Going to Do With That?",
 			   link: "http://chronicle.com/article/What-Are-You-Going-to-Do-With/124651/",
