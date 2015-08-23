@@ -3,7 +3,7 @@ Post
   link: string
   note: string
   tag_list: string
-  user_id: string
+  user_id: integer
 
 User
   name: string
@@ -12,16 +12,16 @@ User
 
 Comment
   text: string
-  user_id: string
-  post_id: string
+  user_id: integer
+  post_id: integer
 
 Favorite
-  user_id: string
-  post_id: string
+  user_id: integer
+  post_id: integer
 
 Tag
   name: string
 
 Tagging
-  tag_id: string
-  post_id: string
+  tag_id: integer
+  post_id: integer
