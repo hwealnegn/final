@@ -2,6 +2,7 @@ Post
   title: string
   link: string
   note: string
+  tag_list: string
   user_id: string
 
 User
@@ -16,4 +17,11 @@ Comment
 
 Favorite
   user_id: string
+  post_id: string
+
+Tag
+  name: string
+
+Tagging
+  tag_id: string
   post_id: string

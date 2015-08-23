@@ -1,10 +1,4 @@
 <h2> <%= link_to @post.title, @post.link %> </h2>
-<p> <%= @post.note %> </p>
-<% if session[:user_id] %>
-	<% if session[:user_id].to_s == @post.user_id.to_s %>
-		<p> <%= link_to "Edit Post", "/posts/#{@post.id}/edit" %> </p>
-	<% end %>
-<% end %>
 
 <% if session[:user_id] %>
 	<% if @post.favorited_by.where(:id => session[:user_id]).exists? %>
@@ -12,6 +6,16 @@
   	<% else %>
   		<%= link_to "Favorite",   favorite_post_path(@post, type: "favorite"), method: :put %>
   	<% end %>
+<% end %>
+
+<p> <%= @post.note %> </p>
+
+<p> Tags: <%= @post.tag_list %> </p>
+
+<% if session[:user_id] %>
+	<% if session[:user_id].to_s == @post.user_id.to_s %>
+		<p> <%= link_to "Edit Post", "/posts/#{@post.id}/edit" %> </p>
+	<% end %>
 <% end %>
 
 <h3> Comments </h3>

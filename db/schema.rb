@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 20150823021620) do
 
   create_table "comments", force: :cascade do |t|
     t.string "text"
@@ -35,9 +35,24 @@ ActiveRecord::Schema.define(version: 0) do
     t.string "link"
     t.string "user_id"
     t.string "note"
+    t.string "tag_list"
   end
 
   add_index "posts", ["user_id"], name: "index_posts_on_user_id"
+
+  create_table "taggings", force: :cascade do |t|
+    t.string "tag_id"
+    t.string "post_id"
+  end
+
+  add_index "taggings", ["post_id"], name: "index_taggings_on_post_id"
+  add_index "taggings", ["tag_id"], name: "index_taggings_on_tag_id"
+
+  create_table "tags", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "name"

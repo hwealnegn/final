@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get '/account' => 'users#show'
   get '/favorites' => 'users#favorite'
   get '/posts' => 'users#post'
+  get '/tags/:tag', to: 'posts#index', as: :tag
 
   resources :posts do
     resources :comments
