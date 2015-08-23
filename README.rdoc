@@ -1,28 +1,7 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is my final project for Web Development (Summer 2015) in the Masters Program in Computer Science at the University of Chicago.
 
-Things you may want to cover:
+My project is a shared blog - a space for a group of people to share their online findings with each other. My friends and I often share links to interesting articles with each other, but the links get lost in our inboxes or various messaging platforms and are difficult to dig up or find again. With this "idea exchange" platform, everything we share is archived in one place.
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+I have deployed my project though Heroku: https://peaceful-garden-6694.herokuapp.com/
