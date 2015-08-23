@@ -6,6 +6,8 @@ class PostsController < ApplicationController
     else
       @posts = Post.all
     end
+
+    @posts = @posts.page(params[:page]).per(5)
   end
 
   def show
