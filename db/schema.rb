@@ -14,35 +14,35 @@
 ActiveRecord::Schema.define(version: 20150823021620) do
 
   create_table "comments", force: :cascade do |t|
-    t.string "text"
-    t.string "user_id"
-    t.string "post_id"
+    t.string  "text"
+    t.integer "user_id"
+    t.integer "post_id"
   end
 
   add_index "comments", ["post_id"], name: "index_comments_on_post_id"
   add_index "comments", ["user_id"], name: "index_comments_on_user_id"
 
   create_table "favorites", force: :cascade do |t|
-    t.string "user_id"
-    t.string "post_id"
+    t.integer "user_id"
+    t.integer "post_id"
   end
 
   add_index "favorites", ["post_id"], name: "index_favorites_on_post_id"
   add_index "favorites", ["user_id"], name: "index_favorites_on_user_id"
 
   create_table "posts", force: :cascade do |t|
-    t.string "title"
-    t.string "link"
-    t.string "user_id"
-    t.string "note"
-    t.string "tag_list"
+    t.string  "title"
+    t.string  "link"
+    t.integer "user_id"
+    t.string  "note"
+    t.string  "tag_list"
   end
 
   add_index "posts", ["user_id"], name: "index_posts_on_user_id"
 
   create_table "taggings", force: :cascade do |t|
-    t.string "tag_id"
-    t.string "post_id"
+    t.integer "tag_id"
+    t.integer "post_id"
   end
 
   add_index "taggings", ["post_id"], name: "index_taggings_on_post_id"
