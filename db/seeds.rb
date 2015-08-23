@@ -32,3 +32,13 @@ Post.create title: "Everyone Deserves Great Design",
 			   link: "http://www.everyonedeservesgreatdesign.com/#now",
 			   note: "Things to consider as a product designer.",
 			   tag_list: "design, guide"
+
+Post.create title: "A Rant on Interaction Design",
+			   link: "http://worrydream.com/ABriefRantOnTheFutureOfInteractionDesign/",
+			   note: "So what is interaction design about, really?",
+			   tag_list: "design, guide"
+
+Post.create title: "Embracing Incompetence",
+			   link: "http://dressagetoday.com/article/embrace-incompetence-26425",
+			   note: "Stages of learning based on competence level.",
+			   tag_list: "life, introspection, growth"
