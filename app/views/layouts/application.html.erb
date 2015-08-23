@@ -9,10 +9,17 @@
 <body>
 	<h1> <%= link_to "Idea Exchange", "/" %> </h1>
 	<ul class="nav navbar-nav navbar-right">
-	  <li><a href="/users/new">Sign Up</a></li>
-	  <li><a href="/sessions/new">Sign In</a></li>
-	  <li><a href="/account">My Account</a></li>
-	  <li><a href="/logout">Sign Out</a></li>
+	  <% if !session[:user_id] %>
+	  	<li><a href="/users/new">Sign Up</a></li>
+	  	<li><a href="/sessions/new">Sign In</a></li>
+	  <% end %>
+	  
+	  <% if session[:user_id] %>
+	  	<li><a href="/account">My Account</a></li>
+	  	<li><a href="/posts">My Posts</a></li>
+	  	<li><a href="/favorites">My Favorites</a></li>
+	  	<li><a href="/logout">Sign Out</a></li>
+	  <% end %>
 	</ul>
 
 <%= yield %>

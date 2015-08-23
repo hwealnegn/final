@@ -1,0 +1,7 @@
+<h2> My Favorites </h2>
+
+<% @posts.each do |post| %>
+	<li>
+		<p> <%= link_to post.title, "/posts/#{post.id}" %> <%= link_to "(unfavorite)", favorite_post_path(post, type: "unfavorite"), method: :put %> </p>
+	</li>
+<% end %>

@@ -1,0 +1,7 @@
+<h2> My Posts </h2>
+
+<% @posts.each do |post| %>
+	<li>
+		<p> <%= link_to post.title, "/posts/#{post.id}" %> <%= link_to "(delete)", "/posts/#{post.id}", :method => "delete" %> </p>
+	</li>
+<% end %>

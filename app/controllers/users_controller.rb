@@ -58,4 +58,14 @@ class UsersController < ApplicationController
     end
   end
 
+  def favorite
+    @user = User.find_by_id(session[:user_id])
+    @posts = @user.favorited_posts
+  end
+
+  def post
+    @user = User.find_by_id(session[:user_id])
+    @posts = @user.posts
+  end
+
 end

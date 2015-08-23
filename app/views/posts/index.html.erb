@@ -4,7 +4,9 @@
 
 <h3> Welcome! This is a space to share articles, book recommendations, and your thoughts with others in this community. Go forth and question, provoke, and inspire each other. </h3>
 
-<p> <%= link_to "Add Post", "posts/new" %> </p>
+<% if session[:user_id] %>
+	<p> <%= link_to "Add Post", "posts/new" %> </p>
+<% end %>
 
 <ul>
 	<% @posts.each do |post| %>

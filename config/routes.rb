@@ -7,12 +7,17 @@ Rails.application.routes.draw do
   post '/sessions' => 'sessions#create'
   get '/logout' => 'sessions#destroy'
   get '/account' => 'users#show'
+  get '/favorites' => 'users#favorite'
+  get '/posts' => 'users#post'
 
   resources :posts do
     resources :comments
     put :favorite, on: :member
   end
-  resources :users
+
+  resources :users do
+    put :favorite, on: :member
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
