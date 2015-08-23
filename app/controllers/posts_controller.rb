@@ -22,6 +22,7 @@ class PostsController < ApplicationController
   	Post.create title: params[:title],
              link: params[:link],
              note: params[:note],
+             tag_list: params[:tag_list],
              user_id: session[:user_id]
 
   	redirect_to root_path
@@ -36,6 +37,7 @@ class PostsController < ApplicationController
     @post.title = params["title"]
     @post.link = params["link"]
     @post.note = params["note"]
+    @post.tag_list = params["tag_list"]
     @post.save
     redirect_to "/posts/#{@post.id}"
   end
