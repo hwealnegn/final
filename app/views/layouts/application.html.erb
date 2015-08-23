@@ -5,22 +5,34 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <%= javascript_include_tag 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.js' %>
+  <%= stylesheet_link_tag "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css" %>
 </head>
 <body>
-	<h1> <%= link_to "Idea Exchange", "/" %> </h1>
-	<ul class="nav navbar-nav navbar-right">
-	  <% if !session[:user_id] %>
-	  	<li><a href="/users/new">Sign Up</a></li>
-	  	<li><a href="/sessions/new">Sign In</a></li>
-	  <% end %>
-	  
-	  <% if session[:user_id] %>
-	  	<li><a href="/account">My Account</a></li>
-	  	<li><a href="/posts">My Posts</a></li>
-	  	<li><a href="/favorites">My Favorites</a></li>
-	  	<li><a href="/logout">Sign Out</a></li>
-	  <% end %>
-	</ul>
+	<nav class="navbar navbar-default">
+		<div class="container-fluid">
+			<a class="navbar-brand" href="/">Idea Exchange</a>
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				<% if session[:user_id] %>
+					<p class="navbar-text"> Hi <%= User.find_by_id(session[:user_id]).name %>! </p>
+				<% end %>
+
+				<ul class="nav navbar-nav navbar-right">
+				  <% if !session[:user_id] %>
+				  	<li><a href="/users/new">Sign Up</a></li>
+				  	<li><a href="/sessions/new">Sign In</a></li>
+				  <% end %>
+				  
+				  <% if session[:user_id] %>
+				  	<li><a href="/account">My Account</a></li>
+				  	<li><a href="/posts">My Posts</a></li>
+				  	<li><a href="/favorites">My Favorites</a></li>
+				  	<li><a href="/logout">Sign Out</a></li>
+				  <% end %>
+				</ul>
+			</div>
+		</div>
+	</nav>
 
 <%= yield %>
 

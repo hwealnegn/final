@@ -53,7 +53,7 @@ class UsersController < ApplicationController
         render 'edit'
       end
     else
-      @user.errors.add(:password, "Does not match")
+      @user.errors.add(:password, "does not match")
       render 'edit'
     end
   end
@@ -61,11 +61,13 @@ class UsersController < ApplicationController
   def favorite
     @user = User.find_by_id(session[:user_id])
     @posts = @user.favorited_posts
+    @posts = @posts.page(params[:page]).per(10)
   end
 
   def post
     @user = User.find_by_id(session[:user_id])
     @posts = @user.posts
+    @posts = @posts.page(params[:page]).per(10)
   end
 
 end

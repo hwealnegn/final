@@ -54,10 +54,10 @@ class PostsController < ApplicationController
     type = params[:type]
     if type == "favorite"
       @user.favorited_posts << (@post)
-      redirect_to :back, notice: 'You favorited #{@post.title}'
+      redirect_to :back
     elsif type == "unfavorite"
       @user.favorited_posts.delete(@post)
-      redirect_to :back, notice: 'You unfavorited #{@post.title}'
+      redirect_to :back
     else
       redirect_to :back
     end

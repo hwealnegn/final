@@ -1,6 +1,6 @@
 <div class="page-body">
     <div class="container-fluid">
-        <h3>Sign Up</h3>
+        <h3>Edit Account</h3>
 
         <% if @user.errors.any? %>
           <ul class="list-unstyled text-danger">
@@ -10,18 +10,18 @@
           </ul>
         <% end %>
 
-        <%= form_tag "/users" do %>
+        <%= form_tag "/users/#{@user.id}", :method => "patch" do %>
             <div class="row">
                 <div class="col-xs-12 col-sm-10 col-md-8">
                     <div class="form-group">
-                        <p><label>Name:</label> <input name="name" class="form-control"></p>
+                        <p><label>Name:</label> <input name="name" value="<%= @user.name %>" class="form-control"></p>
                     </div>
                 </div>
             </div>
             <div class="row">
                 <div class="col-xs-12 col-sm-10 col-md-8">
                     <div class="form-group">
-                        <p><label>Email:</label> <input name="email" class="form-control"></p>
+                        <p><label>Email:</label> <input name="email" value="<%= @user.email %>" class="form-control"></p>
                     </div>
                 </div>
             </div>

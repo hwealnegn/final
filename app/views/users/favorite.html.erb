@@ -1,7 +1,21 @@
-<h2> My Favorites </h2>
+<div class="page-body">
+	<div class="container-fluid">
+		<h3> My Favorites </h3>
+		<ul class="list-group">
+			<% @posts.each do |post| %>
+				<li class="list-group-item">
+					<p>
+						<div class="row container-fluid">
+							<%= link_to post.title, "/posts/#{post.id}" %>
+							<span class="pull-right">
+								<%= button_to "Unfavorite", favorite_post_path(post, type: "unfavorite"), method: :put, :class => "btn btn-default" %>
+							</span>
+						</div>
+					</p>
+				</li>
+			<% end %>
+		</ul>
 
-<% @posts.each do |post| %>
-	<li>
-		<p> <%= link_to post.title, "/posts/#{post.id}" %> <%= link_to "(unfavorite)", favorite_post_path(post, type: "unfavorite"), method: :put %> </p>
-	</li>
-<% end %>
+		<%= paginate @posts %>
+	</div>
+</div>

@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
 
   def destroy
     reset_session
-    redirect_to root_url, notice: "You have successfully signed out."
+    redirect_to root_url
   end
 
   def create
@@ -15,7 +15,6 @@ class SessionsController < ApplicationController
     if user
       if user.authenticate(params["password"])
         session[:user_id] = user.id
-        flash[:notice] = "Welcome back, #{user.name}!"
         redirect_to root_url
       else
         render 'new'

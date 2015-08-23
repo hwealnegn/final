@@ -1,7 +1,24 @@
-<h2> My Posts </h2>
+<div class="page-body">
+	<div class="container-fluid">
+		<h3> My Posts </h3>
+		<ul class="list-group">
+			<% @posts.each do |post| %>
+				<li class="list-group-item">
+					<p>
+						<div class="row container-fluid">
+							<%= link_to post.title, "/posts/#{post.id}" %>
+							<span class="pull-right">
+								<%= button_to "Delete", "/posts/#{post.id}", :method => "delete", :class => "btn btn-default" %>
+							</span>
+							<span class="pull-right container-fluid">
+								<%= button_to "Edit", "/posts/#{post.id}/edit", :method => "get", :class => "btn btn-default" %>
+							</span>
+						</div>
+					</p>
+				</li>
+			<% end %>
+		</ul>
 
-<% @posts.each do |post| %>
-	<li>
-		<p> <%= link_to post.title, "/posts/#{post.id}" %> <%= link_to "(delete)", "/posts/#{post.id}", :method => "delete" %> </p>
-	</li>
-<% end %>
+		<%= paginate @posts %>
+	</div>
+</div>
